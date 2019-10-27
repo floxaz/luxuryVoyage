@@ -1,0 +1,14 @@
+.footer {
+    background-color: #424242;
+    color: #fff;
+    padding: 4rem 0;
+
+    &__container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__info:not(:last-child) {
+        margin-right: 2rem;
+    }
+}
