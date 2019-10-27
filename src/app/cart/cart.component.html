@@ -1,1 +1,26 @@
-<h1>Cart</h1>
+<div class="cart">
+    <div class="row">
+        <div class="cart__summary">{{ itemsQuantity }} articoli nel carrello</div>
+        <div class="cart__container">
+            <div class="cart__no-item" *ngIf="itemsQuantity === 0">Nessun articolo aggiunto</div>
+            <div class="cart__list">
+                <div class="cart__item" *ngFor="let item of items, let i = index">
+                    <img [src]="'assets/images/offer-' + item.image + '.jpg'" [alt]="'Foto di ' + item.imageAuthor" class="cart__img">
+                    <div class="cart__description">
+                        <p class="cart__city">{{ item.city }}</p>
+                        <p class="cart__hotel">{{ item.hotel }}</p>
+                    </div>
+                    <div class="cart__action">
+                        <button class="cart__remove" (click)="onRemove(id)">Rimuovi</button>
+                    </div>
+                    <div class="cart__price">{{item.price}}&euro;</div>
+                </div>
+            </div>
+            <div class="cart__proceed">
+                <p class="cart__text">Totale: </p>
+                <p class="cart__total">{{ total }}&euro;</p>
+                <button class="cart__buy" [disabled]="itemsQuantity === 0" (click)="onBuy()">Acquista viaggio</button>
+            </div>
+        </div>
+    </div>
+</div>

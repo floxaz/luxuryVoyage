@@ -1,0 +1,13 @@
+<div class="offer">
+    <!-- <img [src]="'/assets/images/offer-' + image + '.jpg'" [alt]="'Foto di ' + imageAuthor" class="offer__img"> -->
+    <div class="offer__img" [ngStyle]="{ 
+        backgroundImage: 'url(/assets/images/offer-' + image + '.jpg)',
+        backgroundSize: 'cover'
+    }"></div>
+    <div class="offer__description">
+        <p class="offer__city">{{ city }}</p>
+        <p class="offer__hotel">{{ hotel }}</p>
+        <p class="offer__price">{{ price }}&euro;</p>
+        <button class="offer__add" (click)="onAdd()">Aggiungi al carrello</button>
+    </div>
+</div>

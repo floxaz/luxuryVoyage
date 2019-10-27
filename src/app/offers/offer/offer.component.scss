@@ -1,0 +1,47 @@
+:host {
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1.2rem 0 #ECECEC;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.offer {
+    width: inherit;
+
+    &__img {
+        height: 30rem;
+    }
+
+    &__description {
+        padding: 2rem;
+    }
+
+    &__city {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    &__city,
+    &__hotel,
+    &__price {
+        margin-bottom: 1rem;
+    }
+
+    &__add {
+        border: none;
+        border: .1rem solid #4cd137;
+        border-radius: 1.2rem;
+        color: #4cd137;
+        cursor: pointer;
+        font-size: 1.6rem;
+        padding: 1rem 2rem;
+        transition: all .4s ease;
+        outline: none;
+    }
+
+    &__add:hover,
+    &__add:active {
+        background-color: #4cd137;
+        color: #fff;
+    }
+}

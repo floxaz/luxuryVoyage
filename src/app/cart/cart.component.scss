@@ -1,0 +1,88 @@
+.cart {
+    padding-top: 8rem;
+
+    &__container {
+        display: flex;
+    }
+
+    &__summary {
+        margin-bottom: 2rem;
+    }
+
+    &__list {
+        flex: 1 1 30rem;
+        margin-right: 2rem;
+    }
+
+    &__img {
+        margin-right: 2rem;
+        width: 20rem;
+        height: auto;
+    }
+
+    &__description {
+        flex: 1 1 30rem;
+    }
+
+    &__city {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+
+    &__action {
+        flex: 0 0 10rem;
+    }
+
+    &__remove {
+        border: none;
+        cursor: pointer;
+        color: #F84B4B;
+        font-size: 1.2rem;
+        outline: none;
+    }
+
+    &__price {
+        flex: 0 0 6rem;
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+
+    &__item {
+        border: .1rem solid #ECECEC;
+        display: flex;
+        padding: 1rem;
+    }
+
+    &__no-item {
+        font-size: 4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__proceed {
+        flex: 0 0 30rem;
+    }
+
+    &__total {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    &__buy {
+        border: none;
+        background-color: #4cd137;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2rem;
+        outline: none;
+        padding: 1rem 4rem;
+    }
+
+    &__buy:disabled {
+        background-color: #ECECEC;
+        cursor: initial;
+    }
+}

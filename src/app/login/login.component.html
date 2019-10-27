@@ -1,1 +1,18 @@
-<h1>Login</h1>
+<div class="login">
+    <form class="login__form" [formGroup]="signupForm" (ngSubmit)="onLogin()">
+        <p class="login__title">Inserisci le tue credenziali</p>
+        <div class="login__group">
+            <label for="username" class="login__label">Nome utente</label>
+            <input type="text" class="login__input" id="username" formControlName="username" placeholder="inserisci">
+        </div>
+        <div class="login__group">
+            <label for="password" class="login__label">Password</label>
+            <input type="password" id="password" class="login__input" formControlName="password" placeholder="inserisci">
+        </div>
+        <span class="login__error" *ngIf="isError">Nome utente o password non corretta!</span>
+        <button class="login__btn" [disabled]="signupForm.invalid">Accedi</button>
+        <div class="login__help">
+            <a routerLink="/login" class="login__link">Non hai un account?</a>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,16 @@
-<h1>Offers</h1>
-<br>
-<br>
-<br>
-<a routerLink="/">Home</a>
+<div class="offers">
+    <div class="row">
+        <div class="offers__container">
+            <app-offer 
+            *ngFor="let offer of offers, let i = index" 
+            [city]="offer.city"
+            [hotel]="offer.hotel"
+            [image]="offer.image"
+            [imageAuthor]="offer.imageAuthor"
+            [price]="offer.price"
+            [id]="i"
+            >
+        </app-offer>
+        </div>
+    </div>
+</div>
