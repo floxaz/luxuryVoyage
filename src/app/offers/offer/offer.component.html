@@ -1,13 +1,13 @@
 <div class="offer">
     <div class="offer__img" [ngStyle]="{ 
-        backgroundImage: 'url(/assets/images/offer-' + image + '.jpg)',
+        backgroundImage: 'url(/assets/images/offer-' + id + '.jpg)',
         backgroundSize: 'cover'
     }"></div>
     <div class="offer__description">
         <p class="offer__city">{{ city }}</p>
         <p class="offer__hotel">{{ hotel }}</p>
         <p class="offer__price">{{ price }}&euro;</p>
-        <button class="offer__add" (click)="onAdd()" [ngClass]="{offer__added: added}">
+        <button class="offer__add" (click)="onClick()" [ngClass]="{offer__added: added}">
             <span *ngIf="!added">Aggiungi al carrello</span>
             <span *ngIf="added">Aggiunto al carrello</span>
         <svg class="offer__icon">

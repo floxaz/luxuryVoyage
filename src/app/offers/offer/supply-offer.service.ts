@@ -19,6 +19,7 @@ export class SupplyOfferService {
     }
 
     getOffer(id: number) {
-        return this.offers[id];
+        const foundOffers = this.offers.filter(offer => offer.id === id);
+        return foundOffers[0];
     }
 }

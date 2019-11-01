@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router'
+import { CartService } from '../cart/cart.service';
 
 @Component({
     selector: 'app-header',
@@ -8,9 +9,16 @@ import { Router, NavigationEnd } from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
     isHome: boolean;
-    constructor(private router: Router) {}
+    itemsQuantity: number;
+    constructor(private router: Router, private cartService: CartService) {}
 
     ngOnInit() {
+        this.itemsQuantity = this.cartService.quantifyItems();
+        
+        this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
+            this.itemsQuantity = quantity;
+        });
+
         this.router.events.subscribe(event => {
             if(event instanceof NavigationEnd) {
                 if(event.url !== '/') {
@@ -19,6 +27,6 @@ export class HeaderComponent implements OnInit {
                     this.isHome = true;
                 }
             }
-        })
+        });
     }
 }

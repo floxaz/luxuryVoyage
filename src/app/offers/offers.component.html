@@ -2,13 +2,12 @@
     <div class="row">
         <div class="offers__container">
             <app-offer 
-            *ngFor="let offer of offers, let i = index" 
+            *ngFor="let offer of offers" 
             [city]="offer.city"
             [hotel]="offer.hotel"
-            [image]="offer.image"
+            [id]="offer.id"
             [imageAuthor]="offer.imageAuthor"
             [price]="offer.price"
-            [id]="i"
             >
         </app-offer>
         </div>

@@ -4,14 +4,14 @@
         <div class="cart__container">
             <div class="cart__no-item" *ngIf="itemsQuantity === 0">Nessun articolo aggiunto</div>
             <div class="cart__list">
-                <div class="cart__item" *ngFor="let item of items, let i = index">
-                    <img [src]="'assets/images/offer-' + item.image + '.jpg'" [alt]="'Foto di ' + item.imageAuthor" class="cart__img">
+                <div class="cart__item" *ngFor="let item of items">
+                    <img [src]="'assets/images/offer-' + item.id + '.jpg'" [alt]="'Foto di ' + item.imageAuthor" class="cart__img">
                     <div class="cart__description">
                         <p class="cart__city">{{ item.city }}</p>
                         <p class="cart__hotel">{{ item.hotel }}</p>
                     </div>
                     <div class="cart__action">
-                        <button class="cart__remove" (click)="onRemove(id)">Rimuovi</button>
+                        <button class="cart__remove" (click)="onRemove(item.id)">Rimuovi</button>
                     </div>
                     <div class="cart__price">{{item.price}}&euro;</div>
                 </div>

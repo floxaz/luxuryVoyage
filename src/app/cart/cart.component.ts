@@ -16,7 +16,10 @@ export class CartComponent implements OnInit {
 
     ngOnInit() {
         this.items = this.cartService.supplyItems();
-        this.itemsQuantity = this.items.length;
+        this.itemsQuantity = this.cartService.quantifyItems();
+        this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
+            this.itemsQuantity = quantity;
+        })
         this.calcTotal();
     }
 
@@ -30,7 +33,6 @@ export class CartComponent implements OnInit {
     onRemove(id: number) {
         this.cartService.removeFromCart(id);
         this.calcTotal();
-        this.itemsQuantity = this.items.length;
     }
 
     onBuy() {
