@@ -72,8 +72,12 @@
 
     &__proceed {
         flex: 0 0 30rem;
+        
+        &-content {
+            position: fixed;
+        }
     }
-
+    
     &__total {
         font-size: 3.5rem;
         font-weight: 700;

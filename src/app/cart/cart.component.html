@@ -17,9 +17,11 @@
                 </div>
             </div>
             <div class="cart__proceed">
-                <p class="cart__text">Totale: </p>
-                <p class="cart__total">{{ total }}&euro;</p>
-                <button class="cart__buy" [disabled]="itemsQuantity === 0" (click)="onBuy()">Acquista viaggio</button>
+                <div class="cart__proceed-content">
+                    <p class="cart__text">Totale: </p>
+                    <p class="cart__total">{{ total }}&euro;</p>
+                    <button class="cart__buy" [disabled]="itemsQuantity === 0" (click)="onBuy()">Acquista viaggio</button>
+                </div>
             </div>
         </div>
     </div>

@@ -26,6 +26,10 @@
         position: relative;
     }
 
+    &__active {
+        color: #4cd137;
+    }
+
     &__item-quantity {
         background-color: #4cd137;
         border-radius: 10rem;
