@@ -44,4 +44,25 @@
         background-color: #4cd137;
         color: #fff;
     }
+
+    &__icon {
+        fill: #4cd137;
+        width: 1.2rem;
+        height: 1.2rem;
+        transition: all .4s ease;
+        transform: translateX(.6rem);
+    }
+
+    &__add:hover &__icon {
+        fill: #fff;
+    }
+
+    &__added {
+        background-color: #4cd137;
+        color: #fff;
+    }
+
+    &__added &__icon {
+        fill: #fff;
+    }
 }

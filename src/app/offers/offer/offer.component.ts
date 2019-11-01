@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { CartService } from '../../cart/cart.service';
 
 @Component({
@@ -6,17 +6,25 @@ import { CartService } from '../../cart/cart.service';
     templateUrl: './offer.component.html',
     styleUrls: ['./offer.component.scss']
 })
-export class OfferComponent {
+export class OfferComponent implements OnDestroy {
     @Input() city: string;
     @Input() hotel: string;
     @Input() image: string;
     @Input() imageAuthor: string;
     @Input() price: string;
     @Input() id: number;
+    added: boolean = false;
 
     constructor(private cartService: CartService) {}
 
+    ngOnDestroy() {
+        console.log('fuck...');
+    }
+
     onAdd() {
-        this.cartService.addToCart(this.id);
+        if(!this.added) {
+            this.cartService.addToCart(this.id);
+            this.added = true;
+        } 
     }
 }
