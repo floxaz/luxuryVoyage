@@ -35,3 +35,16 @@
         font-size: 1.6rem;
     }
 }
+
+@media(max-width: 20rem) {
+    .home {
+        &__title {
+            font-size: 3rem;
+        }
+
+        &__link {
+            padding: 1.5rem 3rem;
+            font-size: 1.4rem;
+        }
+    }
+}

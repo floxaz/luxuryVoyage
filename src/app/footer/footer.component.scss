@@ -8,6 +8,10 @@
         justify-content: flex-end;
     }
 
+    &__info {
+        font-size: 1.4rem;
+    }
+
     &__info:not(:last-child) {
         margin-right: 2rem;
     }
