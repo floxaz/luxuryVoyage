@@ -1,6 +1,5 @@
 <div class="offer">
-    <div class="offer__img" [ngStyle]="{ 
-        backgroundImage: 'url(/assets/images/offer-' + id + '.jpg)',
+    <div class="offer__img"  [defaultImage]="defaultImage" [lazyLoad]="'/assets/images/offer-' + id + '.jpg'" [ngStyle]="{
         backgroundSize: 'cover'
     }"></div>
     <div class="offer__description">

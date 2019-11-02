@@ -13,6 +13,7 @@ export class OfferComponent implements OnInit {
     @Input() imageAuthor: string;
     @Input() price: string;
     added: boolean;
+    defaultImage = 'assets/images/default.png';
 
     constructor(private cartService: CartService) {}
 
