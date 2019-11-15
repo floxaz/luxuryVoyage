@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs'
 import { SupplyOfferService } from '../offers/offer/supply-offer.service';
 
 @Injectable({
@@ -6,7 +7,8 @@ import { SupplyOfferService } from '../offers/offer/supply-offer.service';
 })
 export class CartService {
     private items = [];
-    itemsQuantityChanged = new EventEmitter<number>();
+    //itemsQuantityChanged = new EventEmitter<number>();
+    itemsQuantityChanged = new Subject<number>();
 
     constructor(private supplyService: SupplyOfferService) {}
 
@@ -21,14 +23,16 @@ export class CartService {
     addToCart(id: number) {
         const item = this.supplyService.getOffer(id);
         this.items.push(item);
-        this.itemsQuantityChanged.emit(this.items.length);
+        //this.itemsQuantityChanged.emit(this.items.length);
+        this.itemsQuantityChanged.next(this.items.length);
         this.updateStorage();
     }
 
     removeFromCart(id: number) {
         const index = this.items.findIndex(item => item.id === id);
         this.items.splice(index, 1);
-        this.itemsQuantityChanged.emit(this.items.length);
+        //this.itemsQuantityChanged.emit(this.items.length);
+        this.itemsQuantityChanged.next(this.items.length);
         this.updateStorage();
     }
 

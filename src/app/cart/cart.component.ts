@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CartService } from './cart.service';
 
 @Component({
@@ -7,20 +8,25 @@ import { CartService } from './cart.service';
     templateUrl: './cart.component.html',
     styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
     items = [];
     itemsQuantity: number = 0;
     total: number = 0;
+    quantitySubscription: Subscription;
 
     constructor(private cartService: CartService, private router: Router) {}
 
     ngOnInit() {
         this.items = this.cartService.supplyItems();
         this.itemsQuantity = this.cartService.quantifyItems();
-        this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
+        this.quantitySubscription = this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
             this.itemsQuantity = quantity;
         })
         this.calcTotal();
+    }
+
+    ngOnDestroy() {
+        this.quantitySubscription.unsubscribe();
     }
 
     calcTotal() {
