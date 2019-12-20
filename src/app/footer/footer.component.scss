@@ -15,4 +15,16 @@
     &__info:not(:last-child) {
         margin-right: 2rem;
     }
+
+    &__link:link,
+    &__link:visited {
+      color: #fff;
+      text-decoration: none;
+      transition: all .2s ease-in;
+    }
+
+    &__link:hover,
+    &__link:active {
+      color: #4cd137;
+    }
 }

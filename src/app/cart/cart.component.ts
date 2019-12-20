@@ -10,8 +10,8 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit, OnDestroy {
     items = [];
-    itemsQuantity: number = 0;
-    total: number = 0;
+    itemsQuantity = 0;
+    total = 0;
     quantitySubscription: Subscription;
 
     constructor(private cartService: CartService, private router: Router) {}
@@ -21,7 +21,7 @@ export class CartComponent implements OnInit, OnDestroy {
         this.itemsQuantity = this.cartService.quantifyItems();
         this.quantitySubscription = this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
             this.itemsQuantity = quantity;
-        })
+        });
         this.calcTotal();
     }
 

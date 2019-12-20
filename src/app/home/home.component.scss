@@ -9,30 +9,73 @@
     height: 100%;
 
     &__container {
-        text-align: center;
-        //transform: translateY(-4rem);
+      text-align: center;
+      //transform: translateY(-4rem);
     }
 
     &__title {
-        font-size: 4rem;
-        font-weight: 300;
-        letter-spacing: .5rem;
-        margin-bottom: 4rem;
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: .5rem;
+      margin-bottom: 4rem;
+    }
+
+    &__btn,
+    &__btn-primary {
+      //background-color: #4cd137;
+      border: .3rem solid #4cd137;
+      border-radius: 5px;
+      margin-bottom: 3rem;
+      transition: all .4s ease;
+      outline: none;
     }
 
     &__btn {
-        background-color: #4cd137;
-        border: none;
-        border-radius: 100px;
+      background-color: transparent;
+    }
+
+    &__btn:first-of-type {
+      margin-right: 2rem;
+    }
+
+    &__btn-primary {
+      background-color: #4cd137;
+    }
+
+    &__btn-primary a {
+      color: #fff;
+    }
+
+    &__btn:hover {
+      border-color:rgba(#4cd137, .6);
+    }
+
+    &__btn-primary:hover {
+      background-color: rgba(#4cd137, .6);
+      border-color:rgba(#4cd137, .1);
+    }
+
+    &__btn:hover a {
+      color: rgba(#4cd137, .6);
+    }
+
+    &__btn-primary:hover a {
+      color: rgba(#fff, .6);
     }
 
     &__link {
-        color: #fff;
-        display: block;
-        text-decoration: none;
-        text-transform: uppercase;
-        padding: 2rem 4rem;
-        font-size: 1.6rem;
+      //color: #fff;
+      color: #4cd137;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 1.5rem 4rem;
+      font-size: 1.6rem;
+      transition: all .4s ease;
+    }
+
+    &__description {
+      font-size: 1.4rem;
     }
 }
 
