@@ -7,20 +7,21 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component'
-import { LoginComponent } from './auth/login/login.component';
+import { AuthComponent } from './auth/auth.component';
 import { OffersComponent } from './offers/offers.component';
 import { CartComponent } from './cart/cart.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OfferComponent } from './offers/offer/offer.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent,
+    AuthComponent,
     OffersComponent,
     OfferComponent,
     CartComponent,
@@ -31,7 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
