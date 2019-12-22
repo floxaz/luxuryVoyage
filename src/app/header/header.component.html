@@ -1,18 +1,25 @@
 <header class="header" [ngClass]="{home__left: !isHome}">
-    <div class="row">
-        <nav class="header__nav">
-            <div class="header__item">
-                <a routerLink="offers" class="header__link" routerLinkActive="header__active">Offerte</a>
-            </div>
-            <div class="header__item">
-                <a routerLink="cart" class="header__link" routerLinkActive="header__active">
-                    Carrello
-                    <span *ngIf="itemsQuantity !== 0" class="header__item-quantity">{{ itemsQuantity }}</span>
-                </a>
-            </div>
-            <div class="header__item">
-                <a routerLink="/" class="header__link">Logout</a>
-            </div>
-        </nav>
-    </div>
+  <div class="row">
+    <nav class="header__nav">
+      <div class="header__item" *ngIf="authenticated">
+        <a routerLink="offers" class="header__link" routerLinkActive="header__active">Offerte</a>
+      </div>
+      <div class="header__item" *ngIf="authenticated">
+        <a routerLink="cart" class="header__link" routerLinkActive="header__active">
+          Carrello
+          <span *ngIf="itemsQuantity !== 0" class="header__item-quantity">{{ itemsQuantity }}</span>
+        </a>
+      </div>
+      <div class="header__item" *ngIf="authenticated">
+        <a routerLink="/" class="header__link" (click)="onLogout()">Esci</a>
+      </div>
+
+      <div class="header__item" *ngIf="!authenticated">
+        <a routerLink="/login" class="header__link" routerLinkActive="header__active">Accedi</a>
+      </div>
+      <div class="header__item" *ngIf="!authenticated">
+        <a routerLink="/signup" class="header__link" routerLinkActive="header__active">Iscriviti</a>
+      </div>
+    </nav>
+  </div>
 </header>
