@@ -1,5 +1,6 @@
 <div class="login">
-    <form class="login__form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <form class="login__form" [formGroup]="authForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
         <p class="login__title">Inserisci le tue credenziali</p>
         <div class="login__group">
             <label for="email" class="login__label">Email</label>

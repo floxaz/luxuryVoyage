@@ -13,6 +13,7 @@ export class AuthComponent implements OnInit {
   authForm: FormGroup;
   error: string = null;
   isLogin = true;
+  isLoading = false;
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -28,6 +29,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     let req: Observable<any>;
     if (this.isLogin) {
       req = this.authService.login(this.authForm.value.email, this.authForm.value.password);
@@ -37,8 +39,10 @@ export class AuthComponent implements OnInit {
 
     req.subscribe(result => {
       console.log(result);
+      this.isLoading = false;
     }, message => {
       this.error = message;
+      this.isLoading = false;
     });
   }
 }

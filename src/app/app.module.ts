@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { OffersComponent } from './offers/offers.component';
 import { CartComponent } from './cart/cart.component';
@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { OfferComponent } from './offers/offer/offer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     OfferComponent,
     CartComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
