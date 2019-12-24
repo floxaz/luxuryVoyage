@@ -19,6 +19,7 @@ export class SupplyOfferService {
       for (const key in response) {
         if (response.hasOwnProperty(key)) {
           this.offers = response[key];
+          localStorage.setItem('offers', JSON.stringify(this.offers));
           return this.offers;
         }
       }

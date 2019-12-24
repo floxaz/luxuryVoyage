@@ -10,12 +10,16 @@ import { take } from 'rxjs/operators';
 })
 export class OffersComponent implements OnInit {
   offers: Offer[];
-  isLoading = true;
+  isLoading = false;
 
   constructor(private supplyService: SupplyOfferService) { }
 
   ngOnInit() {
-    if (!this.offers) {
+    const offersData = JSON.parse(localStorage.getItem('offers'));
+    if (offersData) {
+      this.offers = offersData;
+    } else {
+      this.isLoading = true;
       this.supplyService.getOffers().pipe(take(1))
         .subscribe(offers => {
           this.offers = offers;
