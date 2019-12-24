@@ -1,4 +1,4 @@
-<div class="login">
+<div class="login" [ngClass]="{'auth--loading': isLoading}">
     <app-loading *ngIf="isLoading"></app-loading>
     <form class="login__form" [formGroup]="authForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
         <p class="login__title">Inserisci le tue credenziali</p>

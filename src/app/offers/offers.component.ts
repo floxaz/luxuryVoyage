@@ -10,6 +10,7 @@ import { take } from 'rxjs/operators';
 })
 export class OffersComponent implements OnInit {
   offers: Offer[];
+  isLoading = true;
 
   constructor(private supplyService: SupplyOfferService) { }
 
@@ -18,6 +19,7 @@ export class OffersComponent implements OnInit {
       this.supplyService.getOffers().pipe(take(1))
         .subscribe(offers => {
           this.offers = offers;
+          this.isLoading = false;
         });
     }
   }

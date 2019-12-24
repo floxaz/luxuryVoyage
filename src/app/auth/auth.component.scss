@@ -10,7 +10,6 @@
     flex: 1 0 50rem;
     display: flex;
     justify-content: center;
-    //position: relative;
 
     &__form {
         border-radius: 1.5rem;
@@ -88,4 +87,12 @@
         text-decoration: none;
         font-size: 1.2rem;
     }
+}
+
+.auth--loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding-top: 0;
 }
