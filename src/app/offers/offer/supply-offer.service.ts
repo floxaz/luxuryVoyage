@@ -27,6 +27,9 @@ export class SupplyOfferService {
   }
 
   getOffer(id: number) {
+    if (!this.offers) {
+      this.offers = JSON.parse(localStorage.getItem('offers'));
+    }
     const foundOffers = this.offers.filter(offer => offer.id === id);
     return foundOffers[0];
   }

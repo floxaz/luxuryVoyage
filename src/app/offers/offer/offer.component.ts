@@ -22,7 +22,7 @@ export class OfferComponent implements OnInit {
     }
 
     onClick() {
-        if(!this.added) {
+        if (!this.added) {
             this.cartService.addToCart(this.id);
             this.added = true;
         } else {

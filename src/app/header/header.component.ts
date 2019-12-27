@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isHome: boolean;
-  itemsQuantity: number;
+  itemsQuantity = 0;
   authenticated = false;
   quantitySub: Subscription;
   constructor(private router: Router, private cartService: CartService, private authService: AuthService) { }
@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
 
     this.quantitySub = this.cartService.itemsQuantityChanged.subscribe((quantity: number) => {
+      console.log(quantity);
       this.itemsQuantity = quantity;
     });
 

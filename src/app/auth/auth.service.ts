@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError, BehaviorSubject } from 'rxjs';
+import { throwError, BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../shared/user.model';
 import { Router } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 
 interface AuthUser {
   kind: string;
@@ -21,6 +22,7 @@ interface AuthUser {
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
+  loggedIn = new Subject<null>();
   private key = 'AIzaSyAiMCHP-b0yxNb9iO12LX3PEhx67C9khtM';
   private tokenExpirationTime: any;
   constructor(private http: HttpClient, private router: Router) { }
@@ -64,6 +66,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('userData');
     localStorage.removeItem('offers');
+    localStorage.removeItem('items');
     this.user.next(null);
     clearTimeout(this.tokenExpirationTime);
   }
@@ -76,6 +79,7 @@ export class AuthService {
     this.tokenExpirationTime = setTimeout(() => {
       localStorage.removeItem('userData');
       localStorage.removeItem('offers');
+      localStorage.removeItem('items');
       this.user.next(null);
       this.router.navigate(['/']);
     }, expiresIn);
@@ -87,6 +91,7 @@ export class AuthService {
     const authenticatedUser = new User(user.email, user.localId, user.idToken, expirationDate);
     localStorage.setItem('userData', JSON.stringify(authenticatedUser));
     this.user.next(authenticatedUser);
+    this.loggedIn.next();
     const expiresIn = expirationDate.getTime() - new Date().getTime();
     this.autoLogout(expiresIn);
   }
