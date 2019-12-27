@@ -12,9 +12,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.authService.autoLogin();
-    console.log(this.cartService.items);
-    this.authService.loggedIn.subscribe(() => {
-      this.cartService.prepare();
+    this.authService.user.subscribe(user => {
+      if (user) {
+        this.cartService.resetSupply();
+        this.cartService.prepare();
+      }
     });
   }
 }

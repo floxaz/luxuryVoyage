@@ -14,22 +14,15 @@ export class CartService {
   private url = 'https://luxuryvoyage1-9d7d0.firebaseio.com/cart/';
   itemsQuantityChanged = new Subject<number>();
   itemsChange = new Subject<any>();
-  supplied = false;
+  suppliedFromFirebase = false;
 
   constructor(
     private supplyService: SupplyOfferService,
     private http: HttpClient, private authService: AuthService) { }
 
-  supplyItems() {
-    return this.authService.user.pipe(take(1), exhaustMap(user => {
-      return this.http.get<{ [key: string]: Offer[] }>(`${this.url}${user.id}.json?auth=${user.getToken()}`)
-        .pipe(map(response => {
-          this.supplied = true;
-          this.items = response ? response.items : [];
-          this.updateStorage();
-          return this.items;
-        }));
-    }));
+
+  getItems() {
+    return this.items.slice();
   }
 
   quantifyItems() {
@@ -41,7 +34,7 @@ export class CartService {
     this.items.push(item);
     this.itemsQuantityChanged.next(this.items.length);
     this.itemsChange.next(this.items);
-    this.updateStorage();
+    this.updateFirebase();
   }
 
   removeFromCart(id: number) {
@@ -49,7 +42,8 @@ export class CartService {
     this.items.splice(index, 1);
     this.itemsQuantityChanged.next(this.items.length);
     this.itemsChange.next(this.items);
-    this.updateStorage();
+    this.updateFirebase();
+    this.updateLocalStorage();
   }
 
   isAdded(id: number) {
@@ -58,19 +52,34 @@ export class CartService {
   }
 
   prepare() {
-    console.log('prepare');
-    this.items = JSON.parse(localStorage.getItem('items')) || [];
-    this.itemsQuantityChanged.next(this.items.length);
-    this.itemsChange.next(this.items);
+    if (!this.suppliedFromFirebase) {
+      this.authService.user.pipe(take(1), exhaustMap(user => {
+        return this.http.get<{ [key: string]: Offer[] }>(`${this.url}${user.id}.json?auth=${user.getToken()}`);
+      }), map(response => response ? response.items : []))
+      .subscribe(items => {
+        this.items = items;
+        this.suppliedFromFirebase = true;
+        this.updateLocalStorage();
+        this.itemsQuantityChanged.next(this.items.length);
+        this.itemsChange.next(this.items);
+      });
+    } else {
+      this.items = JSON.parse(localStorage.getItem('items')) || [];
+      this.itemsQuantityChanged.next(this.items.length);
+      this.itemsChange.next(this.items);
+    }
   }
 
   resetSupply() {
-    this.supplied = false;
+    this.suppliedFromFirebase = false;
   }
 
-  private updateStorage() {
+  private updateLocalStorage () {
     const readyItems = JSON.stringify(this.items);
     localStorage.setItem('items', readyItems);
+  }
+
+  private updateFirebase() {
     this.authService.user.pipe(take(1), exhaustMap(user => {
       return this.http.put(`https://luxuryvoyage1-9d7d0.firebaseio.com/cart/${user.id}.json?auth=${user.getToken()}`, {
         items: this.items

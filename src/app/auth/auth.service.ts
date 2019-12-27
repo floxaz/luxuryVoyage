@@ -22,7 +22,6 @@ interface AuthUser {
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-  loggedIn = new Subject<null>();
   private key = 'AIzaSyAiMCHP-b0yxNb9iO12LX3PEhx67C9khtM';
   private tokenExpirationTime: any;
   constructor(private http: HttpClient, private router: Router) { }
@@ -91,7 +90,6 @@ export class AuthService {
     const authenticatedUser = new User(user.email, user.localId, user.idToken, expirationDate);
     localStorage.setItem('userData', JSON.stringify(authenticatedUser));
     this.user.next(authenticatedUser);
-    this.loggedIn.next();
     const expiresIn = expirationDate.getTime() - new Date().getTime();
     this.autoLogout(expiresIn);
   }

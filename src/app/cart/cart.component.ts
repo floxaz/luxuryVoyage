@@ -18,25 +18,9 @@ export class CartComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
-    if (!this.cartService.supplied) {
-      console.log(this.items);
-      console.log(this.cartService.items);
-      console.log(this.cartService.supplied);
-      console.log('firebase');
-      this.supplySubscription = this.cartService.supplyItems()
-        .subscribe(userItems => {
-          this.items = userItems;
-          this.itemsQuantity = this.cartService.quantifyItems();
-          this.itemsQuantity = this.items.length;
-          this.cartService.itemsQuantityChanged.next(this.itemsQuantity);
-          this.calcTotal();
-        });
-    } else {
-      console.log('local');
-      this.cartService.prepare();
-      // this.itemsQuantity = this.cartService.quantifyItems();
-      // this.calcTotal();
-    }
+    this.items = this.cartService.getItems();
+    this.itemsQuantity = this.items.length;
+    this.calcTotal();
 
     this.itemsChangeSub = this.cartService.itemsChange.subscribe(items => {
       this.items = items;
