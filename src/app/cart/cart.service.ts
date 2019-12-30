@@ -74,7 +74,7 @@ export class CartService {
     this.suppliedFromFirebase = false;
   }
 
-  private updateLocalStorage () {
+  private updateLocalStorage() {
     const readyItems = JSON.stringify(this.items);
     localStorage.setItem('items', readyItems);
   }
@@ -85,8 +85,6 @@ export class CartService {
         items: this.items
       });
     }))
-      .subscribe(result => {
-        //console.log(result);
-      });
+      .subscribe();
   }
 }

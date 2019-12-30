@@ -1,10 +1,17 @@
 <footer class="footer">
     <div class="row">
         <div class="footer__container">
-            <div class="footer__info">
+            <div class="footer__copyright">
               Built and coded by
               <a class="footer__link" href="https://rossyatsura.com/" target="t_blank">Ross Yatsura</a>
+              <span>&copy; All rights reserved {{ year }}</span>
             </div>
+
+            <button class="footer__lang" (click)="changeLanguage()">
+              <svg class="footer__flag">
+                <use [attr.xlink:href]="'assets/images/flag.svg#icon-' + language"></use>
+              </svg>
+            </button>
         </div>
     </div>
 </footer>
