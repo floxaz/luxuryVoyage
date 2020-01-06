@@ -2,16 +2,16 @@
   <div class="row">
     <nav class="header__nav">
       <div class="header__item" *ngIf="authenticated">
-        <a routerLink="offers" class="header__link" routerLinkActive="header__active">Offerte</a>
+        <a routerLink="offers" class="header__link" routerLinkActive="header__active">{{ 'offers' | translate | async }}</a>
       </div>
       <div class="header__item" *ngIf="authenticated">
         <a routerLink="cart" class="header__link" routerLinkActive="header__active">
-          Carrello
+          {{ 'cart' | translate | async }}
           <span *ngIf="itemsQuantity !== 0" class="header__item-quantity">{{ itemsQuantity }}</span>
         </a>
       </div>
       <div class="header__item" *ngIf="authenticated">
-        <a routerLink="/" class="header__link" (click)="onLogout()">Esci</a>
+        <a routerLink="/" class="header__link" (click)="onLogout()">{{ 'logout' | translate | async }}</a>
       </div>
 
       <div class="header__item" *ngIf="!authenticated">

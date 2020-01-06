@@ -16,6 +16,8 @@ import { OfferComponent } from './offers/offer/offer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { TranslatePipe } from './shared/translate.pipe';
+import { TranslationService } from './shared/translation.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     CartComponent,
     FooterComponent,
     PageNotFoundComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
