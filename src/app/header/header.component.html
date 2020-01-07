@@ -2,23 +2,23 @@
   <div class="row">
     <nav class="header__nav">
       <div class="header__item" *ngIf="authenticated">
-        <a routerLink="offers" class="header__link" routerLinkActive="header__active">{{ 'offers' | translate | async }}</a>
+        <a routerLink="offers" class="header__link" routerLinkActive="header__active">{{'offers' | translate}}</a>
       </div>
       <div class="header__item" *ngIf="authenticated">
         <a routerLink="cart" class="header__link" routerLinkActive="header__active">
-          {{ 'cart' | translate | async }}
+          {{ 'cart' | translate }}
           <span *ngIf="itemsQuantity !== 0" class="header__item-quantity">{{ itemsQuantity }}</span>
         </a>
       </div>
       <div class="header__item" *ngIf="authenticated">
-        <a routerLink="/" class="header__link" (click)="onLogout()">{{ 'logout' | translate | async }}</a>
+        <a routerLink="/" class="header__link" (click)="onLogout()">{{ 'logout' | translate }}</a>
       </div>
 
       <div class="header__item" *ngIf="!authenticated">
-        <a routerLink="/login" class="header__link" routerLinkActive="header__active">Accedi</a>
+        <a routerLink="/login" class="header__link" routerLinkActive="header__active">{{ 'sign_in' | translate }}</a>
       </div>
       <div class="header__item" *ngIf="!authenticated">
-        <a routerLink="/signup" class="header__link" routerLinkActive="header__active">Iscriviti</a>
+        <a routerLink="/signup" class="header__link" routerLinkActive="header__active">{{ 'sign_up' | translate }}</a>
       </div>
     </nav>
   </div>

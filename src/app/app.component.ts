@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart/cart.service';
 import { AuthService } from './auth/auth.service';
-import { TranslationService } from './shared/translation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,11 @@ export class AppComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private authService: AuthService,
-    private translationService: TranslationService
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
-    this.translationService.getJSON();
+    this.translate.setDefaultLang('en');
     this.authService.autoLogin();
     this.authService.user.subscribe(user => {
       if (user) {

@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslationService } from '../shared/translation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   year = new Date().getFullYear();
   language = 'it';
 
-  constructor(private translationService: TranslationService) {}
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {
+    this.language = this.translate.getDefaultLang();
+  }
 
   changeLanguage() {
     this.language = this.language === 'it' ? 'en' : 'it';
-    this.translationService.changeLanguage(this.language);
+    this.translate.use(this.language);
   }
 }
