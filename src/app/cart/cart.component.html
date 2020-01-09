@@ -1,8 +1,8 @@
 <div class="cart">
     <div class="row">
-        <div class="cart__summary">{{ itemsQuantity }} articoli nel carrello</div>
+        <div class="cart__summary">{{ itemsQuantity }} {{ 'items_in_your_cart' | translate }}</div>
         <div class="cart__container">
-            <div class="cart__no-item" *ngIf="itemsQuantity === 0">Nessun articolo aggiunto</div>
+            <div class="cart__no-item" *ngIf="itemsQuantity === 0">{{ 'there_are_no_added_items' | translate }}</div>
             <div class="cart__list">
                 <div class="cart__item" *ngFor="let item of items">
                     <img [src]="'assets/images/offer-' + item.id + '.jpg'" [alt]="'Foto di ' + item.imageAuthor" class="cart__img">
@@ -11,16 +11,16 @@
                         <p class="cart__hotel">{{ item.hotel }}</p>
                     </div>
                     <div class="cart__action">
-                        <button class="cart__remove" (click)="onRemove(item.id)">Rimuovi</button>
+                        <button class="cart__remove" (click)="onRemove(item.id)">{{ 'remove' | translate }}</button>
                     </div>
                     <div class="cart__price">{{item.price}}&euro;</div>
                 </div>
             </div>
             <div class="cart__proceed">
                 <div class="cart__proceed-content">
-                    <p class="cart__text">Totale: </p>
+                    <p class="cart__text">{{ 'total' | translate }}: </p>
                     <p class="cart__total">{{ total }}&euro;</p>
-                    <button class="cart__buy" [disabled]="itemsQuantity === 0" (click)="onBuy()">Acquista viaggio</button>
+                    <button class="cart__buy" [disabled]="itemsQuantity === 0" (click)="onBuy()">{{ 'buy' | translate }}</button>
                 </div>
             </div>
         </div>

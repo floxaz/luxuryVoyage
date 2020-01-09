@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('it');
     this.authService.autoLogin();
     this.authService.user.subscribe(user => {
       if (user) {

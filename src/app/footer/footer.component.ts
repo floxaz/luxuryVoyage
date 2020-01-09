@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslationService } from '../shared/translation.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,7 +13,11 @@ export class FooterComponent implements OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit() {
-    this.language = this.translate.getDefaultLang();
+    if (this.translate.currentLang) {
+      this.language = this.translate.currentLang;
+    } else {
+      this.language = this.translate.getDefaultLang();
+    }
   }
 
   changeLanguage() {

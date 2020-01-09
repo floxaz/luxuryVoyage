@@ -7,8 +7,8 @@
         <p class="offer__hotel">{{ hotel }}</p>
         <p class="offer__price">{{ price }}&euro;</p>
         <button class="offer__add" (click)="onClick()" [ngClass]="{offer__added: added}">
-            <span *ngIf="!added">Aggiungi al carrello</span>
-            <span *ngIf="added">Aggiunto al carrello</span>
+            <span *ngIf="!added">{{ 'add_to_cart' | translate }}</span>
+            <span *ngIf="added">{{ 'added_to_cart' | translate }}</span>
         <svg class="offer__icon">
             <use *ngIf="!added" href="assets/images/sprite.svg#icon-add"></use>
             <use *ngIf="added" href="assets/images/sprite.svg#icon-done"></use>
