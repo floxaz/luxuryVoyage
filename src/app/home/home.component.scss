@@ -1,3 +1,7 @@
+:host {
+  flex: 1 0 50rem;
+}
+
 .home {
     background-image: linear-gradient(rgba(135, 28, 28, .3), rgba(135, 28, 28, .7)), url('/assets/images/wallpaper.jpg');
     background-size: cover;

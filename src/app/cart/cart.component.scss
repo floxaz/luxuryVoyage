@@ -1,8 +1,9 @@
 :host {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
+    //display: flex;
+    //width: 100%;
+    //height: 100%;
+    //flex-direction: column;
+    flex: 1 0 50rem;
 }
 
 .cart {
@@ -72,12 +73,12 @@
 
     &__proceed {
         flex: 0 0 30rem;
-        
+
         &-content {
             position: fixed;
         }
     }
-    
+
     &__total {
         font-size: 3.5rem;
         font-weight: 700;
