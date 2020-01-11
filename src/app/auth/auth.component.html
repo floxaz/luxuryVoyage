@@ -10,7 +10,7 @@
             <label for="password" class="login__label">{{ 'password' | translate }}</label>
             <input type="password" id="password" class="login__input" formControlName="password" [placeholder]="'enter' | translate">
         </div>
-        <span class="login__error" *ngIf="error">{{ error }}</span>
+        <span class="login__error" *ngIf="error">{{ error | translate }}</span>
         <button class="login__btn" [disabled]="authForm.invalid">{{ isLogin ? ('sign_in' | translate) : ('sign_up' | translate)}}</button>
         <div class="login__help">
             <a routerLink="/signup" class="login__link" *ngIf="isLogin">{{ 'dont_have_an_account' | translate }}</a>

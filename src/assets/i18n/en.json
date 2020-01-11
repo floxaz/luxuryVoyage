@@ -24,5 +24,11 @@
   "discover_our_offers": "Discover our offers",
   "welcome_to": "Welcome to",
   "you_must_be_a_member_of_our_community_to_explore_exclusive_offers": "You must be a member of our community to explore exclusive offers",
-  "this_website_has_been_created_for_showing_purpose": "This website has been created for showing purpose only, you can't buy anything here"
+  "this_website_has_been_created_for_showing_purpose": "This website has been created for showing purpose only, you can't buy anything here",
+  "EMAIL_NOT_FOUND": "There is no user record corresponding to this identifier. The user may have been deleted.",
+  "INVALID_PASSWORD": "The password is invalid.",
+  "USER_DISABLED": "The user account has been disabled by an administrator",
+  "EMAIL_EXISTS": "The email address is already in use by another account.",
+  "OPERATION_NOT_ALLOWED": "Password sign-in is disabled for this project.",
+  "TOO_MANY_ATTEMPTS_TRY_LATER": "All requests from this device have been blocked due to unusual activity. Try again later."
 }

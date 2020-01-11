@@ -48,6 +48,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   onBuy() {
-    this.router.navigate(['login']);
+    this.router.navigate(['purchase']);
   }
 }

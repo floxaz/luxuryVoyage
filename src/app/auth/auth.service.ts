@@ -4,7 +4,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../shared/user.model';
 import { Router } from '@angular/router';
-import { CartService } from '../cart/cart.service';
 
 interface AuthUser {
   kind: string;
@@ -95,27 +94,6 @@ export class AuthService {
   }
 
   private handleError(err: any) {
-    let message = 'Errore sconosciuto';
-    switch (err.error.error.message) {
-      case 'EMAIL_NOT_FOUND':
-        message = 'Non esiste alcun utente corrispondente a queste credenziali. L\'Utente potrebbe essere stato eliminato';
-        break;
-      case 'INVALID_PASSWORD':
-        message = 'La password non è valida';
-        break;
-      case 'USER_DISABLED':
-        message = 'Tale utente è stato disabilitato dall\'amministratore';
-        break;
-      case 'EMAIL_EXISTS':
-        message = 'L\'Indirizzo email è già in uso.';
-        break;
-      case 'OPERATION_NOT_ALLOWED':
-        message = 'Password sign-in è disabilitato per questo progetto.';
-        break;
-      case 'TOO_MANY_ATTEMPTS_TRY_LATER':
-        message = 'Tutte le richieste sono state bloccate a causa di un\'attività anomale. Riprova più tardi';
-        break;
-    }
-    return throwError(message);
+    return throwError(err.error.error.message);
   }
 }
