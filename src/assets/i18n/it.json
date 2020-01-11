@@ -21,5 +21,7 @@
   "enter": "inserisci",
   "error": "Errore",
   "page_not_found": "Pagina non trovata",
-  "discover_our_offers": "Visualizza Offerte"
+  "discover_our_offers": "Visualizza Offerte",
+  "welcome_to": "Benvenuto in",
+  "you_must_be_a_member_of_our_community_to_explore_exclusive_offers": "Per vedere le esclusive offerte deve far parte della nostra community"
 }

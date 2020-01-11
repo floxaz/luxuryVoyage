@@ -21,5 +21,7 @@
   "enter": "enter",
   "error": "Error",
   "page_not_found": "Page not found",
-  "discover_our_offers": "Discover our offers"
+  "discover_our_offers": "Discover our offers",
+  "welcome_to": "Welcome to",
+  "you_must_be_a_member_of_our_community_to_explore_exclusive_offers": "You must be a member of our community to explore exclusive offers"
 }
