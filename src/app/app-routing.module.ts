@@ -6,6 +6,7 @@ import { AuthComponent } from './auth/auth.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: AuthComponent},
   {path: 'signup', component: AuthComponent},
+  {path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuardService]},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

@@ -18,6 +18,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     CartComponent,
     FooterComponent,
     PageNotFoundComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
