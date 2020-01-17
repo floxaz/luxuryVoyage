@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { SupplyOfferService } from '../offers/offer/supply-offer.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
-import { take, exhaustMap, map } from 'rxjs/operators';
+import { take, exhaustMap, map, tap } from 'rxjs/operators';
 import { Offer } from '../offers/offer/offer.model';
+import { User } from '../shared/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -56,13 +57,13 @@ export class CartService {
       this.authService.user.pipe(take(1), exhaustMap(user => {
         return this.http.get<{ [key: string]: Offer[] }>(`${this.url}${user.id}.json?auth=${user.getToken()}`);
       }), map(response => response ? response.items : []))
-      .subscribe(items => {
-        this.items = items;
-        this.suppliedFromFirebase = true;
-        this.updateLocalStorage();
-        this.itemsQuantityChanged.next(this.items.length);
-        this.itemsChange.next(this.items);
-      });
+        .subscribe(items => {
+          this.items = items;
+          this.suppliedFromFirebase = true;
+          this.updateLocalStorage();
+          this.itemsQuantityChanged.next(this.items.length);
+          this.itemsChange.next(this.items);
+        });
     } else {
       this.items = JSON.parse(localStorage.getItem('items')) || [];
       this.itemsQuantityChanged.next(this.items.length);

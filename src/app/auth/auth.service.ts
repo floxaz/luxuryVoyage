@@ -21,6 +21,7 @@ interface AuthUser {
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
+  loggedOut = new Subject<null>();
   private key = 'AIzaSyAiMCHP-b0yxNb9iO12LX3PEhx67C9khtM';
   private tokenExpirationTime: any;
   constructor(private http: HttpClient, private router: Router) { }
@@ -65,6 +66,7 @@ export class AuthService {
     localStorage.removeItem('userData');
     localStorage.removeItem('offers');
     localStorage.removeItem('items');
+    this.loggedOut.next();
     this.user.next(null);
     clearTimeout(this.tokenExpirationTime);
   }
@@ -78,6 +80,7 @@ export class AuthService {
       localStorage.removeItem('userData');
       localStorage.removeItem('offers');
       localStorage.removeItem('items');
+      this.loggedOut.next();
       this.user.next(null);
       this.router.navigate(['/']);
     }, expiresIn);

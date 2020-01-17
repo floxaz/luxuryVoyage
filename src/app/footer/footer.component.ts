@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { LangService } from '../shared/lang.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +13,7 @@ export class FooterComponent implements OnInit {
   year = new Date().getFullYear();
   language = 'it';
 
-  constructor(private translate: TranslateService, private router: Router) { }
+  constructor(private translate: TranslateService, private router: Router, private langService: LangService) { }
 
   ngOnInit() {
     if (this.translate.currentLang) {
@@ -29,6 +30,11 @@ export class FooterComponent implements OnInit {
           this.isHome = true;
         }
       }
+    });
+
+    this.langService.userLang.subscribe(lang => {
+      this.language = lang;
+      this.translate.use(this.language);
     });
   }
 
