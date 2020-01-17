@@ -1,7 +1,8 @@
 <header class="header" [ngClass]="{home__left: !isHome}">
   <div class="row">
     <nav class="header__nav">
-      <div class="header__item" *ngIf="authenticated">
+      <div class="header__item header__email" *ngIf="email && authenticated">{{ email }}</div>
+      <div class="header__item header__item--first" *ngIf="authenticated">
         <a routerLink="offers" class="header__link" routerLinkActive="header__active">{{'offers' | translate}}</a>
       </div>
       <div class="header__item" *ngIf="authenticated">

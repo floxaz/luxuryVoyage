@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-header',
@@ -14,14 +15,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   itemsQuantity = 0;
   authenticated = false;
   quantitySub: Subscription;
+  email: string = null;
   constructor(private router: Router, private cartService: CartService, private authService: AuthService) { }
 
   ngOnInit() {
     this.itemsQuantity = this.cartService.quantifyItems();
 
-    this.authService.user.subscribe(user => {
+    this.authService.user.subscribe((user: User) => {
       if (user) {
         this.authenticated = true;
+        this.email = user.email;
       } else {
         this.authenticated = false;
       }
