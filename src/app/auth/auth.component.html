@@ -10,6 +10,10 @@
             <label for="password" class="login__label">{{ 'password' | translate }}</label>
             <input type="password" id="password" class="login__input" formControlName="password" [placeholder]="'enter' | translate">
         </div>
+        <div class="login__group" *ngIf="!isLogin">
+          <label for="repeatPassword" class="login__label">{{ 'repeat_password' | translate }}</label>
+          <input type="password" id="repeatPassword" class="login__input" formControlName="repeatPassword" [placeholder]="'enter' | translate">
+      </div>
         <span class="login__error" *ngIf="error">{{ error | translate }}</span>
         <button class="login__btn" [disabled]="authForm.invalid">{{ isLogin ? ('sign_in' | translate) : ('sign_up' | translate)}}</button>
         <div class="login__help">

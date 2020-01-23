@@ -30,5 +30,6 @@
   "USER_DISABLED": "The user account has been disabled by an administrator",
   "EMAIL_EXISTS": "The email address is already in use by another account.",
   "OPERATION_NOT_ALLOWED": "Password sign-in is disabled for this project.",
-  "TOO_MANY_ATTEMPTS_TRY_LATER": "All requests from this device have been blocked due to unusual activity. Try again later."
+  "TOO_MANY_ATTEMPTS_TRY_LATER": "All requests from this device have been blocked due to unusual activity. Try again later.",
+  "repeat_password": "Repeat password"
 }
