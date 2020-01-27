@@ -28,10 +28,17 @@ body {
     margin: 0 auto;
 }
 
-$small-phone: 20em;
+$phone-s: 20em;
+$phone-l: 23.4375em;
 
-@media(max-width: 20em) {
+@media(max-width: $phone-s) {
     .row {
         padding: 0 1rem;
     }
+}
+
+@media(max-width: 114em) {
+  .row {
+      padding: 0 1rem;
+  }
 }

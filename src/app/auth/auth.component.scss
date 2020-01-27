@@ -10,12 +10,13 @@
     flex: 1 0 50rem;
     display: flex;
     justify-content: center;
+    //align-items: center;
 
     &__form {
         border-radius: 1.5rem;
-        box-shadow: 0 0 1.2rem 0 #ECECEC;
+        //box-shadow: 0 0 1.2rem 0 #ECECEC;
         width: 40rem;
-        height: 37rem;
+        height: 40rem;
         padding: 2rem 4rem;
     }
 
@@ -95,4 +96,13 @@
   align-items: center;
   flex-grow: 1;
   padding-top: 0;
+}
+
+@media(max-width: 48em) {
+  .login {
+    &__form {
+      box-shadow: none;
+      transform: translateY(-5rem);
+    }
+  }
 }

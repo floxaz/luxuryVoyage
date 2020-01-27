@@ -88,3 +88,15 @@
         }
     }
 }
+
+@media(max-width: 23.4375em) {
+  .header {
+    &__item {
+      padding: 2rem 0 .5rem .5rem;
+    }
+
+    &__link {
+      font-size: 1.4rem;
+    }
+  }
+}
