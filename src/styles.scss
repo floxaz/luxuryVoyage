@@ -42,3 +42,9 @@ $phone-l: 23.4375em;
       padding: 0 1rem;
   }
 }
+
+@media(max-width: 27.5em) {
+  .row {
+    padding: 0 .5rem;
+  }
+}
