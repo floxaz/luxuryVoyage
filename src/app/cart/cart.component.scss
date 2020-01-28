@@ -24,10 +24,20 @@
         margin-right: 2rem;
     }
 
+    &__img_description_box {
+      flex: 1 1 50rem;
+      display: flex;
+    }
+
     &__img {
         margin-right: 2rem;
         width: 20rem;
         height: auto;
+    }
+
+    &__info_box {
+      flex: 1 1 50rem;
+      display: flex;
     }
 
     &__description {
@@ -40,8 +50,15 @@
         font-size: 2rem;
     }
 
+    &__action_price_box {
+      flex: 0 1 16rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
     &__action {
-        flex: 0 0 10rem;
+      // flex: 0 1 10rem;
+      padding-left: 1rem;
     }
 
     &__remove {
@@ -53,10 +70,11 @@
     }
 
     &__price {
-        flex: 0 0 6rem;
+        flex: 0 0 7rem;
         text-align: right;
         font-weight: 700;
         font-size: 1.6rem;
+        padding-left: .5rem;
     }
 
     &__item {
@@ -99,4 +117,121 @@
         background-color: #ECECEC;
         cursor: initial;
     }
+}
+
+@media(max-width: 60em) {
+  .cart {
+    &__proceed {
+      flex: 0 0 18rem;
+    }
+  }
+}
+
+@media(max-width: 51.25em) {
+  .cart {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    &__list {
+      margin-right: 1rem;
+    }
+    &__item {
+      height: 15.54rem;
+    }
+
+    &__img {
+      width: 18rem;
+      margin-right: 1rem;
+    }
+    &__info_box {
+      flex-direction: column;
+    }
+
+    &__description {
+      flex: 1 1 20rem;
+    }
+
+    &__action_price_box {
+      flex: 0 0 3rem;
+      align-items: flex-end;
+    }
+
+    &__action {
+      padding-left: 0;
+      flex-basis: none;
+    }
+  }
+}
+
+@media(max-width: 37.5rem) {
+  .cart {
+    &__summary {
+      margin-bottom: 1rem;
+    }
+    &__container {
+      flex-direction: column-reverse;
+    }
+
+    &__list {
+      margin-right: 0;
+    }
+
+    &__proceed {
+      flex: 0 0 12.3rem;
+      padding-bottom: 2rem;
+      &-content {
+        position: initial;
+      }
+    }
+
+    &__text {
+      margin-right: 1rem;
+    }
+
+    &__text,
+    &__total {
+      display: inline-block;
+    }
+
+    &__buy {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+@media(max-width: 27.5rem) {
+  .cart {
+    &__item {
+      padding: .5rem;
+    }
+
+    &__img {
+      margin-right: .5rem;
+    }
+
+    &__city {
+      font-size: 1.6rem;
+    }
+
+    &__hotel {
+      font-size: 1.2rem;
+    }
+
+    &__remove {
+      font-size: 1rem;
+    }
+
+    &__price {
+      font-size: 1.4rem;
+      flex-shrink: 1;
+    }
+
+    &__total {
+      font-size: 3rem;
+    }
+
+    &__buy {
+      font-size: 1.6rem;
+    }
+  }
 }
