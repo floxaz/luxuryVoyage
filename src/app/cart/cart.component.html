@@ -3,7 +3,7 @@
         <div class="cart__summary">{{ itemsQuantity }} {{ 'items_in_your_cart' | translate }}</div>
         <div class="cart__container">
             <div class="cart__no-item" *ngIf="itemsQuantity === 0">{{ 'there_are_no_added_items' | translate }}</div>
-            <div class="cart__list">
+            <div class="cart__list" *ngIf="itemsQuantity !== 0">
                 <div class="cart__item" *ngFor="let item of items">
                     <img [src]="'assets/images/offer-' + item.id + '.jpg'" [alt]="'Foto di ' + item.imageAuthor" class="cart__img">
                     <div class="cart__info_box">

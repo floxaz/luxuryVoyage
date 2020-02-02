@@ -12,7 +12,23 @@
   &__message {
     max-width: 100rem;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 }
 
+@media(max-width: 48em) {
+  .purchase {
+    &__message {
+      font-size: 2.5rem;
+      padding: 0 2rem;
+    }
+  }
+}
+
+@media(max-width: 27.5em) {
+  .purchase {
+    &__message {
+      font-size: 2rem;
+    }
+  }
+}

@@ -43,3 +43,19 @@
         font-size: 1.6rem;
     }
 }
+
+@media (max-width: 27.5em) {
+  .not-found {
+    &__error {
+      font-size: 3rem;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+    }
+
+    &__link {
+      font-size: 1.2rem;
+    }
+  }
+}
