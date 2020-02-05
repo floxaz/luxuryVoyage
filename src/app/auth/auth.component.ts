@@ -46,14 +46,16 @@ export class AuthComponent implements OnInit {
   }
 
   compareToRepeatPassword(control: FormControl) {
-    if (this.authForm.get('repeatPassword').value && control.value !== this.authForm.get('repeatPassword').value) {
-      this.authForm.get('repeatPassword').setErrors({
+    const repeatPassword = this.authForm.get('repeatPassword');
+    if (repeatPassword.value && control.value !== repeatPassword.value) {
+      repeatPassword.setErrors({
         invalidPassword: true
       });
     } else {
-      this.authForm.get('repeatPassword').setErrors({
+      repeatPassword.setErrors({
         invalidPassword: null
       });
+      repeatPassword.updateValueAndValidity();
     }
   }
 
