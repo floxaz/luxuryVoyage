@@ -88,7 +88,7 @@ export class AuthService {
 
   private handleAuthentication(user: AuthUser) {
     const expirationDate = new Date(new Date().getTime() + +user.expiresIn * 1000);
-    console.log(expirationDate);
+    // console.log(expirationDate);
     const authenticatedUser = new User(user.email, user.localId, user.idToken, expirationDate);
     localStorage.setItem('userData', JSON.stringify(authenticatedUser));
     this.user.next(authenticatedUser);

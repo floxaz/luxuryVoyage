@@ -7,32 +7,24 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AuthComponent } from './auth/auth.component';
-import { OffersComponent } from './offers/offers.component';
-import { CartComponent } from './cart/cart.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OfferComponent } from './offers/offer/offer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { PurchaseComponent } from './purchase/purchase.component';
+import { OffersModule } from './offers/offers.module';
+import { AuthModule } from './auth/auth.module';
+import { CartModule } from './cart/cart.module';
+import { PurchaseModule } from './purchase/purchase.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    AuthComponent,
-    OffersComponent,
-    OfferComponent,
-    CartComponent,
     FooterComponent,
     PageNotFoundComponent,
-    LoadingSpinnerComponent,
-    PurchaseComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +32,10 @@ import { PurchaseComponent } from './purchase/purchase.component';
     ReactiveFormsModule,
     LazyLoadImageModule,
     HttpClientModule,
+    AuthModule,
+    OffersModule,
+    CartModule,
+    PurchaseModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

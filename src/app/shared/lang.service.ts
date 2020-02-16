@@ -17,7 +17,7 @@ export class LangService {
   constructor(private http: HttpClient, private authService: AuthService, private translate: TranslateService) { }
 
   saveUserLang() {
-    console.log(this.translate.defaultLang);
+    // console.log(this.translate.defaultLang);
     let lang: string;
     if (this.translate.currentLang) {
       lang = this.translate.currentLang;

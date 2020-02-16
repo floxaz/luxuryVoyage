@@ -77,7 +77,6 @@ export class AuthComponent implements OnInit {
     }
 
     req.subscribe(result => {
-      console.log(result);
       this.isLoading = false;
       this.router.navigate(['/offers']);
     }, message => {
